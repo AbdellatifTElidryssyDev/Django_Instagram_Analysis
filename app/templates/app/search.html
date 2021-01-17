@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="my-4">
+    <h2>Hashtag search</h2>
+</div>
+
+<div class="table-responsive search-table">
+    <table class="table">
+        <form method="post">
+            {% csrf_token %}
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <label class="control-label">hashtag</label>
+                    </th>
+                    <td>
+                        {% render_field form.hashtag class="form-control" placeholder="Enter hashtag" %}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <button class="btn btn-warning" type="submit">Search for</button>
+                    </td>
+                </tr>
+            </tbody>
+        </form>
+    </table>
+</div>
+
+<p>* Depending on the hashtag, it may take some time to search.</p>
+
+{% endblock %}
